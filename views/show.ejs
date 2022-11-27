@@ -3,13 +3,18 @@
 <head>
     <%- include("./partials/head") %>
 <body>
-    <h1><%= Pokemon.name %></h1>
+    <h1><%=Pokemon.name%></h1>
     <img src=<%=Pokemon.img%> >
-    <h3> <%=Pokemon.type%> </h3>
-    <h4> Attack: <%=Pokemon.stats.attack%> </h4>
-    <h4> Defense: <%=Pokemon.stats.defense%> </h4>
-    <h4> Speed: <%=Pokemon.stats.speed%> </h4>
-    <a href="/<%=Pokemon.id%>/edit"><button class="glow-on-hover" type="button">Edit</button></a>
+    <div calss="details">
+        <h3> <%=Pokemon.type%> </h3>
+        <h4> Attack: <%=Pokemon.stats.attack%> </h4>
+        <h4> Defense: <%=Pokemon.stats.defense%> </h4>
+        <h4> Speed: <%=Pokemon.stats.speed%> </h4>
+    </div>
     <a href="/"><button class="glow-on-hover" type="button">Back to Main</button></a>
+    <a href="/<%=Pokemon.id%>/edit"><button class="glow-on-hover" type="button">Edit</button></a>
+    <form class="glow-on-hover" type="button" action="/<%=index; %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </a>
 </body>
 </html>

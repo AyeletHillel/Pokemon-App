@@ -9,7 +9,6 @@
   
   body {
     font-family: 'Noto Sans JP', sans-serif;
-    background-color: #fef8f8;
   }
 
 .cards {
@@ -22,6 +21,7 @@
   }
   
   .card {
+    background-color: white;
     position: relative;
     display: block;
     height: 100%;  

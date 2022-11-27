@@ -38,6 +38,22 @@ app.get('/new', (req, res) => {
     res.render('new.ejs')
 })
 
+//DESTROY route
+app.delete("/:id",(req,res) =>{
+    Pokemon.splice(req.params.id, 1)
+    res.redirect("/")
+})
+
+//UPDATE route
+app.put("/:id",(req,res) =>{
+    console.log(req.body)
+    const id = req.params.id
+    Pokemon.findByIdAndUpdate(id, req.body, {new: true}, (err, fruit) => {
+        // redirect user back to main page when fruit 
+        res.redirect("/")
+    })
+})
+
 // CREATE
 app.post('/', (req, res,) => {
     Pokemon.push(req.body)
@@ -47,12 +63,18 @@ app.post('/', (req, res,) => {
 
 // EDIT 
 app.get('/:id/edit', (req, res) => {
-        res.render('edit.ejs', { Pokemon: Pokemon[req.params.id] })
+        res.render('edit.ejs', { 
+            Pokemon: Pokemon[req.params.id],
+            index: req.params.id
+         })
 })
 
 // SHOW
 app.get('/:id', (req, res) => {
-    res.render('show.ejs', { Pokemon: Pokemon[req.params.id] });
+    res.render('show.ejs', { 
+        Pokemon: Pokemon[req.params.id],
+        index: req.params.id
+     });
     });
 
 
