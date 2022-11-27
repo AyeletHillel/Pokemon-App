@@ -14,12 +14,27 @@ const Pokemon = require('./models/pokemon');
 app.use(morgan('tiny'))
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:true}))
+
+// Static Files
 app.use(express.static('public'))
+
+// Set Views
+app.set('views', './views');
+app.set('view engine', 'ejs');
+
+
+//////////////////////////////////////////////
+//////// Routes
+///////////////////////////////////////////////
 
 //Index
 app.get('/', (req, res) => {
     res.render('index.ejs', { Pokemon })
 })
 
+// SHOW
+app.get('/:id', (req, res) => {
+    res.render('show.ejs', { Pokemon: Pokemon[req.params.id] });
+    });
 
 app.listen(PORT, ()=> console.log(`Who let the dogs out on port: ${PORT}`))
