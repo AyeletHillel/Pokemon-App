@@ -13,7 +13,7 @@ const Pokemon = require('./models/pokemon');
 
 app.use(morgan('tiny'))
 app.use(methodOverride('_method'))
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:false}))
 
 // Static Files
 app.use(express.static('public'))
@@ -44,18 +44,10 @@ app.delete("/:id",(req,res) =>{
     res.redirect("/")
 })
 
-//UPDATE route
-app.put("/:id",(req,res) =>{
-    console.log(req.body)
-    const id = req.params.id
-    Pokemon.findByIdAndUpdate(id, req.body, {new: true}, (err, fruit) => {
-        // redirect user back to main page when fruit 
-        res.redirect("/")
-    })
-})
 
 // CREATE
 app.post('/', (req, res,) => {
+    console.log(req.body)
     Pokemon.push(req.body)
     res.redirect("/")
 
@@ -63,14 +55,24 @@ app.post('/', (req, res,) => {
 
 // EDIT 
 app.get('/:id/edit', (req, res) => {
+    console.log(Pokemon[req.params.id])
         res.render('edit.ejs', { 
             Pokemon: Pokemon[req.params.id],
             index: req.params.id
          })
 })
 
+//UPDATE route
+app.put("/:id",(req,res) =>{
+    console.log(req.body)
+    Pokemon[req.params.id] = req.body
+    res.redirect("/")
+})
+
+
 // SHOW
 app.get('/:id', (req, res) => {
+    console.log(Pokemon[req.params.id])
     res.render('show.ejs', { 
         Pokemon: Pokemon[req.params.id],
         index: req.params.id

@@ -4,33 +4,17 @@
 <body>
 <main>
     <div>
-<form action="/<%=index%>?_method=PUT" method="post">
-    <fieldset>
-        <legend>Add a New Pokemon</legend>
-        <label>
-            Name:<input
-            type="text"
-            name="name"      
-            placeholder="Enter Pokemon Name"
-            />
-        </label>
-        <label>
-            Img:<input
-            type="text"
-            name="imgURL"
-            placeholder="Enter Image URL"
-            />
-        </label>
-        <label>
-            Type:<input
-            type="text"
-            name="type"
-            placeholder="Enter Pokemon Type"
-            />
-        </label>
-        <input type="submit" value="Update Pokemon" />
-    </fieldset>
-</form>        
+        <h1>Edit Pokemon</h1>
+        <form action="/<%=index%>?_method=PUT" method="POST">
+            <br>
+            <input type="text" name="name">
+            <br>
+            <input type="text" name="img">
+            <br>
+            <input type="text" name="type">
+            <br>
+            <input type="submit" name="" value="Submit Changes">
+        </form>
     </div>
 </main>
 <a href="/"><button class="glow-on-hover" type="button">Back</button></a>
