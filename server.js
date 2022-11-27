@@ -45,6 +45,13 @@ app.delete("/:id",(req,res) =>{
 })
 
 
+//UPDATE route
+app.put("/:id",(req,res) =>{
+    console.log(req.body)
+    Pokemon[req.params.id] = req.body
+    res.redirect("/")
+})
+
 // CREATE
 app.post('/', (req, res,) => {
     console.log(req.body)
@@ -61,14 +68,6 @@ app.get('/:id/edit', (req, res) => {
             index: req.params.id
          })
 })
-
-//UPDATE route
-app.put("/:id",(req,res) =>{
-    console.log(req.body)
-    Pokemon[req.params.id] = req.body
-    res.redirect("/")
-})
-
 
 // SHOW
 app.get('/:id', (req, res) => {
