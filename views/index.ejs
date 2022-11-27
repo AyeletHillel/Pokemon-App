@@ -3,10 +3,11 @@
     <%- include("./partials/head") %>
 <body>
     <h1>Here comes the Pokemon</h1>
+    <a href="/new"><button class="glow-on-hover" type="button">Add a New Pokemon</button></a>
 <ul class="cards">
  <% for(let i =0; i < Pokemon.length; i++) { %>
     <li>
-        <a href="" class="card">
+        <a href="/<%=i%>" class="card">
             <h3> <%= Pokemon[i].name %> </h3>
             <img src=<%=Pokemon[i].img%> >
         </a>

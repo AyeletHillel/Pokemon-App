@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("./partials/head") %>
+<body>
+<main>
+    <div>
+<form action="/" method="post">
+    <fieldset>
+        <legend>Add a New Pokemon</legend>
+        <label>
+            Name:<input
+            type="text"
+            name="name"
+            placeholder="Enter Pokemon Name"
+            />
+        </label>
+        <label>
+            Img:<input
+            type="text"
+            name="imgURL"
+            placeholder="Enter Image URL"
+            />
+        </label>
+        <label>
+            Type:<input
+            type="text"
+            name="type"
+            placeholder="Enter Pokemon Type"
+            />
+        </label>
+        <input type="submit" value="create new pokemon" />
+    </fieldset>
+</form>        
+    </div>
+</main>
+<a href="/"><button class="glow-on-hover" type="button">Back</button></a>
+</body>
+</html>
